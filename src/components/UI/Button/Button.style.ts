@@ -1,43 +1,55 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Sbutton = styled.button`
-    width: 100%;
-    margin-bottom: 30px;
-    cursor: pointer;
-    padding: 12px 15px;
-    font-size: inherit;
-    border-radius: 10px;
-    background-color: ${(props) => props.theme.colors.primeColor};
-    color: white;
-    transition: 200ms;
+interface StyledButtonProps {
+  isPrimary?: boolean;
+}
 
-    &:disabled {
-      background-color: ${(props) => props.theme.colors.disabledBgc};
-    }
+export const SButton = styled.button<StyledButtonProps>`
+  width: 100%;
+  margin-bottom: 30px;
+  cursor: pointer;
+  padding: 12px 15px;
+  font-size: inherit;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.colors.primeColor};
+  color: white;
+  transition: 200ms;
 
-    &.primary {
-      background-color: ${(props) => props.theme.colors.primeColor};
-      color: white;
-    }
+  border: 1px solid transparent;
+  outline: 0;
+  font-family: inherit;
 
-    &.secondary {
-      background-color: ${(props) => props.theme.colors.lightPrime};
-      color: ${(props) => props.theme.colors.placeholderColor};
-    }
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabledBgc};
+  }
 
-    &:disabled:hover {
-      cursor: default;
-      opacity: 0.5;
-    }
+  ${(props) =>
+    props.isPrimary
+      ? css`
+          background-color: ${(props) => props.theme.colors.primeColor};
+          color: white;
+        `
+      : css`
+          background-color: ${(props) => props.theme.colors.lightPrime};
+          color: ${(props) => props.theme.colors.placeholderColor};
+        `}
 
-    &:hover {
-      translate: 0 -5px;
-      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
-    }
+  &:disabled:hover {
+    cursor: default;
+    opacity: 0.5;
+  }
 
-    &:active {
-      transition: 100ms;
-      translate: 0 0;
-      box-shadow: none;
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  &:active {
+    transition: 100ms;
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  @media (max-width: 730px) {
+        padding: 10px 12px;
+      }
 `;

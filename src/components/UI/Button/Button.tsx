@@ -1,9 +1,14 @@
-import { Sbutton } from "./Button.style";
+import { SButton } from "./Button.style"; 
 
-type TButtonProps = {
-    buttonText: string;
-};
+interface TButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonText: string;
+  isPrimary: boolean;
+}
 
-export const SButton = ({ buttonText }: TButtonProps) => {
-    return <Sbutton>{buttonText}</Sbutton>;
+export const Button = ({ buttonText, isPrimary, ...props }: TButtonProps) => {
+  return (
+    <SButton isPrimary={isPrimary} {...props}>
+      {buttonText}
+    </SButton>
+  );
 };

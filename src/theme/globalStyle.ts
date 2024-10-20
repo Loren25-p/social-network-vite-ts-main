@@ -14,12 +14,12 @@ export const GlobalStyle = createGlobalStyle`
       background-color: ${(props) => props.theme.colors.bgc};
       color: ${(props) => props.theme.colors.textColor};
     }
-
+/* 
     button, input {
       border: 1px solid transparent;
       outline: 0;
       font-family: inherit;
-    }
+    } */
 
     a {
       text-decoration: none;
@@ -34,10 +34,10 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-    .container {
-      padding: 0 calc(12vw - 35px);
+     .container {
+      /* padding: 0 calc(12vw - 35px); */
       /* margin-top: calc(4.4vw + 62px); */
-    }
+    } 
 
     ._no-select {
       user-select: none;
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-    input {
+    /* input {
       padding: 12px 15px;
       background-color: ${(props) => props.theme.colors.bgc};
       border-radius: 10px;
@@ -79,15 +79,15 @@ export const GlobalStyle = createGlobalStyle`
       &:hover, &:focus {
         border-color: ${(props) => props.theme.colors.primeColor};
       }
-    }
+    } */
 
     
 
 
-    @media (max-width: 730px) {
+    /* @media (max-width: 730px) {
       input, button {
         padding: 10px 12px;
       }
-    }
+    } */
   `;
 
